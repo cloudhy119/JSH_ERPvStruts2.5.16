@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
-	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 	<package name="user" namespace="/user" extends="json-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
 		<action name="*" class="userAction" method="{1}">
 			<result type="json"/>
+			<allowed-methods>login</allowed-methods>
 		</action>
 		<!-- 退出登录 -->
 		<action name="logout" class="userAction" method="logout">
